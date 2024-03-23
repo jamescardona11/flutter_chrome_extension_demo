@@ -1,16 +1,10 @@
 # flutter_chrome_extension_demo
 
-A new Flutter project.
+See the my medium to see the full article: [Flutter Chrome Extension](https://medium.com/@jamescardona11)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Result 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center" width="100%">
+<img src="https://i.imgur.com/IpxNxic.gif" title="exchange SendPort" width="350"/>
+</p>

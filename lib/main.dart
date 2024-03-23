@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'counter/counter_page.dart';
 import 'summary/chrome_home_page.dart';
 
 void main() {
@@ -17,7 +18,24 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const ChromeHomePage(),
+      home: const HomePage(),
     );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: PageView(
+      children: const [
+        ChromeHomePage(),
+        CounterPage(),
+      ],
+    ));
   }
 }

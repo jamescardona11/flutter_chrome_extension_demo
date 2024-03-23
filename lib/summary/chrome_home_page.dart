@@ -13,17 +13,10 @@ class ChromeHomePage extends StatefulWidget {
 }
 
 class _ChromePopupState extends State<ChromeHomePage> {
-  late bool isLoading;
-  late GPTClient summaryApiClient;
+  bool isLoading = false;
+  final GPTClient summaryApiClient = GPTClient();
 
-  String? _summary;
-
-  @override
-  void initState() {
-    isLoading = false;
-    summaryApiClient = GPTClient();
-    super.initState();
-  }
+  String? summary;
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +81,7 @@ class _ChromePopupState extends State<ChromeHomePage> {
               child: SingleChildScrollView(
                 child: Container(
                   margin: const EdgeInsets.only(bottom: 20),
-                  child: isLoading ? const Center(child: CircularProgressIndicator()) : Text(_summary ?? ''),
+                  child: isLoading ? const Center(child: CircularProgressIndicator()) : Text(summary ?? ''),
                 ),
               ),
             ),
@@ -108,10 +101,9 @@ class _ChromePopupState extends State<ChromeHomePage> {
       isLoading = true;
     });
 
-    String summary = await summaryApiClient.getPageSummary(url) ?? 'Error fetching summary';
+    summary = await summaryApiClient.getPageSummary(url) ?? 'Error fetching summary';
 
     setState(() {
-      _summary = summary;
       isLoading = false;
     });
   }
