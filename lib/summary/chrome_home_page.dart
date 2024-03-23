@@ -1,5 +1,3 @@
-// import 'dart:js_util';
-
 import 'dart:js_util';
 
 import 'package:flutter/material.dart';
@@ -66,7 +64,7 @@ class _ChromePopupState extends State<ChromeHomePage> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueGrey,
                   ),
-                  onPressed: _summarySelectText,
+                  onPressed: _summarySelectedText,
                   child: const Text(
                     "Selected text",
                     style: TextStyle(
@@ -100,7 +98,7 @@ class _ChromePopupState extends State<ChromeHomePage> {
     );
   }
 
-  Future<void> _summarySelectText() async {}
+  Future<void> _summarySelectedText() async {}
 
   Future<void> _summaryAllPage() async {
     print('Summary all page');
