@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chrome_extension_demo/summary/chrome_api.dart';
 
 import 'gpt_client.dart';
+import 'js_interop/js_interop.dart';
 
 class ChromeHomePage extends StatefulWidget {
   const ChromeHomePage({super.key});
@@ -91,7 +92,18 @@ class _ChromePopupState extends State<ChromeHomePage> {
     );
   }
 
-  Future<void> _summarySelectedText() async {}
+  Future<void> _summarySelectedText() async {
+    print('Summary Selected Text');
+
+    try {
+      String pageUrl = await JsInterop.getPageUrl();
+
+      print('pageUrl $pageUrl');
+    } catch (e) {
+      print('error $e');
+    }
+    setState(() {});
+  }
 
   Future<void> _summaryAllPage() async {
     print('Summary all page');
