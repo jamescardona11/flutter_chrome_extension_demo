@@ -21,7 +21,8 @@
     },
     "permissions": [
         "tabs",
-        "activeTab"
+        "activeTab",
+        "scripting"
     ],
     "content_scripts": [
         {
@@ -32,6 +33,9 @@
                 "contentScript.js"
             ]
         }
+    ],
+    "host_permissions": [
+        "<all_urls>"
     ],
     "manifest_version": 3
 }

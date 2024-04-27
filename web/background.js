@@ -14,10 +14,28 @@ chrome.tabs.onUpdated.addListener(
   }
 )
 
-chrome.runtime.onMessage.addListener(async function (message, sender, sendResponse) {
-  console.log("message");
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  console.log("message listerner -- background.js");
+  console.log("message:", message);
+
   if (message.type === "counter") {
     sendMessage(message.data);
+  } else if (message.type === "selectedText") {
+    const promise = new Promise(function (resolve, reject) {
+      chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
+        const tabId = tabs[0].id;
+        const text = await chrome.scripting.executeScript({
+          target: { tabId: tabId },
+          function: () => getSelection().toString()
+        });
+        resolve(text);
+      });
+    })
+
+    promise.then((response) => {
+      sendResponse(response);
+    });
+    return true;
   }
 });
 

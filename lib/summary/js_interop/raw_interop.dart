@@ -5,3 +5,6 @@ import 'dart:js_interop';
 
 @JS()
 external JSPromise<JSString> getPageUrl();
+
+@JS()
+external JSPromise<JSString> getSelectedText();

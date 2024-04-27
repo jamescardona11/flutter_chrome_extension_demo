@@ -8,4 +8,8 @@ abstract class JsInterop {
   static Future<String> getPageUrl() async {
     return (await interop.getPageUrl().toDart).toDart;
   }
+
+  static Future<String> getSelectedText() async {
+    return (await interop.getSelectedText().toDart).toDart;
+  }
 }

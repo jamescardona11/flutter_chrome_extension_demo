@@ -95,14 +95,12 @@ class _ChromePopupState extends State<ChromeHomePage> {
   Future<void> _summarySelectedText() async {
     print('Summary Selected Text');
 
-    try {
-      String pageUrl = await JsInterop.getPageUrl();
+    // To show other ways to get the current page URL
+    String pageUrl = await JsInterop.getPageUrl();
+    print('Page URL: $pageUrl');
 
-      print('pageUrl $pageUrl');
-    } catch (e) {
-      print('error $e');
-    }
-    setState(() {});
+    String selectedText = await JsInterop.getSelectedText();
+    print('Selected Text: $selectedText');
   }
 
   Future<void> _summaryAllPage() async {
