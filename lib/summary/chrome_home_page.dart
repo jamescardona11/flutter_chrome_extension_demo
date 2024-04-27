@@ -101,6 +101,16 @@ class _ChromePopupState extends State<ChromeHomePage> {
 
     String selectedText = await JsInterop.getSelectedText();
     print('Selected Text: $selectedText');
+
+    setState(() {
+      isLoading = true;
+    });
+
+    summary = await summaryApiClient.getTextSummary(selectedText) ?? 'Error fetching summary';
+
+    setState(() {
+      isLoading = false;
+    });
   }
 
   Future<void> _summaryAllPage() async {
