@@ -1,6 +1,5 @@
+import 'package:flutter_chrome_extension_demo/config/env.dart';
 import 'package:projectile/projectile.dart';
-
-import 'config/env.dart';
 
 class GPTClient {
   final projectile = Projectile(client: HttpClient(config: const BaseConfig(enableLog: false)));

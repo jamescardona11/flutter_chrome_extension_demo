@@ -48,4 +48,8 @@ app.*.map.json
 **/android/**
 **/ios/**
 
-**/env.dart
+**/.env
+env.g.dart
+.fvm
+.fvmrc
+.vscode
