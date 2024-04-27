@@ -49,6 +49,7 @@ app.*.map.json
 **/ios/**
 
 **/.env
+api_key.dart
 env.g.dart
 .fvm
 .fvmrc

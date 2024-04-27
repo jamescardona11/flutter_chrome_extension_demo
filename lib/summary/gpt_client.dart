@@ -1,4 +1,4 @@
-import 'package:flutter_chrome_extension_demo/config/env.dart';
+import 'package:flutter_chrome_extension_demo/config/api_key.dart';
 import 'package:projectile/projectile.dart';
 
 class GPTClient {
