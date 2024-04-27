@@ -23,19 +23,41 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late final PageController _pageController = PageController();
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: PageView(
-      children: const [
-        ChromeHomePage(),
-        CounterPage(),
-      ],
-    ));
+          controller: _pageController,
+          children: const [
+            ChromeHomePage(),
+            CounterPage(),
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: (index) {
+            _pageController.jumpToPage(index);
+          },
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.chrome_reader_mode),
+              label: 'Chrome',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add),
+              label: 'Counter',
+            ),
+          ],
+        ));
   }
 }
