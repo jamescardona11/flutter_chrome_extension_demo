@@ -13,7 +13,6 @@ async function getSelectedText() {
     chrome.runtime.sendMessage({ type: "selectedText" }, function (response) {
       resolve(response);
     });
-
   })
 
   const selection = await promise;

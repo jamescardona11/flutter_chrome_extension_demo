@@ -34,8 +34,13 @@ function create_popup(message) {
 }
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  console.log("message listerner -- contentScript.js");
+  console.log("message:", message);
+
   if (message.type == "notifications") {
     create_popup(message.data);
+  } else if (message.type === "hello") {
+    sendResponse({ response: "From contentScript" });
   }
 });
 

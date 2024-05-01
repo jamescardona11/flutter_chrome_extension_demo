@@ -20,22 +20,23 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 
   if (message.type === "counter") {
     sendMessage(message.data);
-  } else if (message.type === "selectedText") {
-    const promise = new Promise(function (resolve, reject) {
-      chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
-        const tabId = tabs[0].id;
-        const text = await chrome.scripting.executeScript({
-          target: { tabId: tabId },
-          function: () => getSelection().toString()
+  } else
+    if (message.type === "selectedText") {
+      const promise = new Promise(function (resolve, reject) {
+        chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
+          const tabId = tabs[0].id;
+          const text = await chrome.scripting.executeScript({
+            target: { tabId: tabId },
+            function: () => getSelection().toString()
+          });
+          resolve(text);
         });
-        resolve(text);
-      });
-    })
+      })
 
-    promise.then((response) => {
-      sendResponse(response);
-    });
-    return true;
-  }
+      promise.then((response) => {
+        sendResponse(response);
+      });
+      return true;
+    }
 });
 
